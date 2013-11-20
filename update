@@ -24,7 +24,7 @@ function invoke {
 		VALUES ($BUILD_ID, '" > $SQL_FILE
 
 	# Escape the command and append to the query. Also store the exit code.
-	echo "$COMMAND" | sed -f escape.sed >> $SQL_FILE
+	echo "$COMMAND" | sed s/\'/\'\'/g >> $SQL_FILE
 
 	echo -n "', '" >> $SQL_FILE
 
@@ -55,7 +55,7 @@ function svn_revision {
 function revert_repo_and_start {
 	svn update --revision $OLD_SVN_REVISION $REPO_PATH
 	set_state failed
-	./mymoney.sh start
+	$SCRIPT_DIR/mymoney_ctl start
 }
 
 # Memorize SVN revision
@@ -69,7 +69,7 @@ BUILD_ID=`sqlite3 "$DB_PATH" "INSERT INTO builds (started_at, status, trigger_mo
 echo BUILD_ID=$BUILD_ID
 
 # Stop the application
-invoke "./mymoney.sh stop"
+invoke "./mymoney_ctl stop" "$SCRIPT_DIR"
 
 # Update the repository
 invoke "svn update" "$REPO_PATH"
@@ -107,7 +107,7 @@ if [ $INVOKE_EXIT_CODE != 0 ]; then
 fi
 
 # OK! It seems we have up to date system. Start.
-invoke "./mymoney.sh start"
+invoke "./mymoney_ctl start" "$SCRIPT_PATH"
 
 # On failure, revert everything and hope for the best
 if [ $INVOKE_EXIT_CODE != 0 ]; then

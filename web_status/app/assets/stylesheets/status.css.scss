@@ -2,35 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-	background-color: white;
-	text-align: left;
-	font-family: verdana,helvetica,arial,sans-serif
-}
-
-#title > h1 {
-	margin-bottom: 3pt;
-}
-
-#title > h2 {
-	margin-top: 3pt;
-}
-
-#title
-{
-	text-align: center;
-}
-
-.container {
-	width: 800px;
-	margin-left: auto;
-	margin-right: auto;
+#build-list-head {
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	overflow: hidden;
 }
 
 #build-list {
 	list-style-type: none;
 	background-color: #888888;
-	padding: 0;
+	padding: 0pt;
+	margin: 0pt;
 }
 
 .build-list-item {
@@ -62,24 +46,4 @@ body {
 }
 .successful:hover {
 	background-color: #C6ED8C;
-}
-
-.build-list-item-started-at {
-	float: left;
-	width: 40%;
-}
-
-.build-list-item-trigger-mode {
-	float: left;
-	width: 25%;
-}
-
-.build-list-item-status {
-	float: left;
-	width: 25%;
-}
-
-.build-list-item-revision {
-	float: left;
-	width: 10%;
 }

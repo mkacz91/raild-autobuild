@@ -1,5 +1,30 @@
 <div class=container>
-	<h1>MyMoney AutoBuild</h1>
+
+	<%= link_to root_url do %>
+		<div id="title">
+			<h1>MyMoney</h1>
+			<h2>System automatycznego budowania</h2>
+		</div>
+	<% end %>
+
+	<h3>Próba zbudowania</h3>
+
+	<div id="build-info-container">
+		<div id="build-info-head">
+			<div class="col-started-at">Czas rozpoczęcia</div>
+			<div class="col-trigger-mode">Rodzaj wywołania</div>
+			<div class="col-revision">Rewizja</div>
+			<div class="col-status">Status</div>
+		</div>
+		<div id="build-info" class="<%= @build.status_css %>">
+			<div class="col-started-at"><%= @build.started_at %></div>
+			<div class="col-trigger-mode"><%= @build.trigger_mode_local %></div>
+			<div class="col-revision"><%= @build.svn_revision %></div>
+			<div class="col-status"><%= @build.status_local %></div>
+		</div>
+	</div>
+
+	<h3>Przebieg</h3>
 	<% @build.commands.each do |command| %>
 		<p class="command-title"><code>
 			> <strong><%= command.title %></strong>

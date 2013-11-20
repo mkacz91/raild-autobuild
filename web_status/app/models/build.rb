@@ -19,7 +19,16 @@ class Build < ActiveRecord::Base
 		when :successful
 			return "successful"
 		else
-			return "failed"
+			return "in-progress"
+		end
+	end
+
+	def trigger_mode_local
+		case trigger_mode
+		when :manual
+			return "manualny"
+		else
+			return "automatyczny"
 		end
 	end
 end
