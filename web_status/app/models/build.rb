@@ -3,9 +3,9 @@ class Build < ActiveRecord::Base
 	
 	def status_local
 		case status
-		when :in_progress
+		when "in_progress"
 			return "w toku"
-		when :successful
+		when "successful"
 			return "powodzenie"
 		else
 			return "nieudana"
@@ -14,18 +14,18 @@ class Build < ActiveRecord::Base
 
 	def status_css
 		case status
-		when :in_progress
+		when "in_progress"
 			return "in-progress"
-		when :successful
+		when "successful"
 			return "successful"
 		else
-			return "in-progress"
+			return "failed"
 		end
 	end
 
 	def trigger_mode_local
 		case trigger_mode
-		when :manual
+		when "manual"
 			return "manualny"
 		else
 			return "automatyczny"

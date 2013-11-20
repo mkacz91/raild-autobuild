@@ -18,7 +18,7 @@
 		<% @builds.each do |build| %>
 			<%= link_to build do %>
 				<li class="build-list-item <%= build.status_css %>">
-					<div class="col-started-at"><%= build.started_at %></div>
+					<div class="col-started-at"><%= build.started_at.in_time_zone('Warsaw').strftime("%Y-%m-%d %H:%M") %></div>
 					<div class="col-trigger-mode"><%= build.trigger_mode_local %></div>
 					<div class="col-revision"><%= build.svn_revision %></div>
 					<div class="col-status"><%= build.status_local %></div>
