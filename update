@@ -4,7 +4,7 @@
 # are reverted and the old version is run instead.
 
 # Get the trigger mode. If no specified, it's manual.
-if [ -n $1 ]; then
+if [ -n "$1" ]; then
 	TRIGGER_MODE=$1
 else
 	TRIGGER_MODE=manual
@@ -71,8 +71,6 @@ OLD_SVN_REVISION=`svn_revision`
 BUILD_ID=`sqlite3 "$DB_PATH" "INSERT INTO builds (started_at, status, trigger_mode, svn_revision) \
 	VALUES (datetime('now'), 'in_progress', '$TRIGGER_MODE', $OLD_SVN_REVISION); \
 	SELECT last_insert_rowid();"`
-
-echo BUILD_ID=$BUILD_ID
 
 # Stop the application
 invoke "./mymoney_ctl stop" "$SCRIPT_DIR"
