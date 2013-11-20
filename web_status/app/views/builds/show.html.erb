@@ -1,0 +1,13 @@
+<div class=container>
+	<h1>MyMoney AutoBuild</h1>
+	<% @build.commands.each do |command| %>
+		<p class="command-title"><code>
+			> <strong><%= command.title %></strong>
+		</code></p>
+		<p class="command-output"><code>
+			<% command.output.lines.each do |line| %>
+				<%= line %><br>
+			<% end %>
+		<code></p>
+	<% end %>
+</div>

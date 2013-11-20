@@ -1,0 +1,18 @@
+<div class=container>
+	<div id="title">
+		<h1>MyMoney</h1>
+		<h2>System automatycznego budowania</h2>
+	</div>
+	<ul id="build-list">
+		<% @builds.each do |build| %>
+			<%= link_to build do %>
+				<li class="build-list-item <%= build.status_css %>">
+					<div class="build-list-item-started-at"><%= build.started_at %></div>
+					<div class="build-list-item-trigger-mode"><%= build.trigger_mode %></div>
+					<div class="build-list-item-status"><%= build.status_local %></div>
+					<div class="build-list-item-revision"><%= build.svn_revision %></div>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+</div>

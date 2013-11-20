@@ -1,0 +1,4 @@
+# Constants for the update script to use
+
+REPO_PATH=/path/to/repo
+APP_PATH=$REPO_PATH/trunk

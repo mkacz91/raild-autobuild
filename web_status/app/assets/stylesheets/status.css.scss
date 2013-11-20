@@ -1,0 +1,85 @@
+// Place all the styles related to the status controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+	background-color: white;
+	text-align: left;
+	font-family: verdana,helvetica,arial,sans-serif
+}
+
+#title > h1 {
+	margin-bottom: 3pt;
+}
+
+#title > h2 {
+	margin-top: 3pt;
+}
+
+#title
+{
+	text-align: center;
+}
+
+.container {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#build-list {
+	list-style-type: none;
+	background-color: #888888;
+	padding: 0;
+}
+
+.build-list-item {
+	height: 36px;
+	line-height: 36px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.in-progress {
+	background-color: #FFF5CC;
+	color: #5E5737;
+}
+.in-progress:hover {
+	background-color: #EDE0A8;
+}
+
+.failed {
+	background-color: #FFCCCC;
+	color: #8C5A5A;
+}
+.failed:hover {
+	background-color: #F7B0B0;
+}
+
+.successful {
+	background-color: #E9FFC7;
+	color: #55663C;
+}
+.successful:hover {
+	background-color: #C6ED8C;
+}
+
+.build-list-item-started-at {
+	float: left;
+	width: 40%;
+}
+
+.build-list-item-trigger-mode {
+	float: left;
+	width: 25%;
+}
+
+.build-list-item-status {
+	float: left;
+	width: 25%;
+}
+
+.build-list-item-revision {
+	float: left;
+	width: 10%;
+}

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  build_id: 
+  title: MyString
+  output: MyText
+  result: 1
+
+two:
+  build_id: 
+  title: MyString
+  output: MyText
+  result: 1

@@ -1,0 +1,38 @@
+#!/bin/bash
+# An init script to start/stop MyMoney web server
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Load settings
+source $SCRIPT_DIR/rab.config
+
+PID_FILE=/var/run/mymoney/server.pid
+
+case "$1" in
+	start)
+		if [ -e $PID_FILE ]; then
+			echo "The server is already running"
+			exit 0
+		fi
+		cd $APP_PATH && rails server --daemon --pid=$PID_FILE
+		;;
+	stop)
+		if ! [ -e $PID_FILE ]; then
+			echo "The server is not even running"
+			exit 0
+		fi
+		kill -KILL `cat $PID_FILE`
+		echo "The server has stopped"
+		rm $PID_FILE
+		;;
+	restart)
+		if [ -e $PID_FILE ]; then kill -KILL `cat $PID_FILE`; fi
+		cd $APP_PATH && rails server --daemon --pid=$PID_FILE
+		;;
+	status)
+		if [ -e $PID_FILE ]; then
+			echo "The server is online"
+		else
+			echo "The server is offline"
+		fi
+esac
