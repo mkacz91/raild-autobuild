@@ -19,6 +19,11 @@ DB_PATH=$SCRIPT_DIR/web_status/db/development.sqlite3
 SQL_FILE=`mktemp /tmp/rab-XXXXXX`
 WORKING_DIR=`pwd`
 
+# Somehow when calling this script from within ruby, the BUNDLE_GEMFILE
+# may be set to the Gemfile of the caller, making further calls to bundler
+# incorrect
+BUNDLE_GEMFILE=
+
 # Function that invokes arbitrary commands and logs them along with output
 # and exit code to the database. The exit code is additionally stored as
 # INVOKE_EXIT_CODE.

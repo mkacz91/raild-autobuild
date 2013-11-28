@@ -16,4 +16,4 @@
 /tmp
 
 # Ignore custom config files
-/config/motd
+/config/motd.txt

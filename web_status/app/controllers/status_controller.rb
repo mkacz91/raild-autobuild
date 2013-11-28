@@ -6,12 +6,12 @@ class StatusController < ApplicationController
 	def motd
 		return IO.read(Rails.root.join("config", "motd.txt"))
 	rescue
-		return "";
+		return ""
 	end
 
 	def build_now
 		if !Build.any_in_progress?
-			spawn(Rails.root.join("..", "update").to_s)
+			spawn("bash " + Rails.root.join("..", "update").to_s)
 		end
 			redirect_to :root
 	end
