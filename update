@@ -15,9 +15,6 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Load settings
 source $SCRIPT_DIR/rab.config
 
-# For some reason cron doesn't run this and cannot use ruby
-source /usr/local/rvm/scripts/rvm
-
 DB_PATH=$SCRIPT_DIR/web_status/db/development.sqlite3
 SQL_FILE=`mktemp /tmp/rab-XXXXXX`
 WORKING_DIR=`pwd`

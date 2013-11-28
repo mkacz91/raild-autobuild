@@ -31,4 +31,8 @@ class Build < ActiveRecord::Base
 			return "automatyczny"
 		end
 	end
+
+	def self.any_in_progress?
+		return exists?(status: "in_progress")
+	end
 end

@@ -6,7 +6,15 @@
 			<h2>System automatycznego budowania</h2>
 		</div>
 	<% end %>
-	
+
+	<p id="motd">
+		<% motd.lines.each do |line| %>
+			<%= line.html_safe %><br>
+		<% end %>
+	</p>
+
+	<div id="build-now-button"><%= button_to "Zbuduj teraz", :action => "build_now" %></div>
+
 	<h3>Próby zbudowania</h3>
 
 	<div id="build-list-head">
